@@ -1,2 +1,3 @@
 # ChessBoard
-This is for CS 3400
+We want to animate a chess match on a complex, light up chess board. The chess board floats in space for now. Although more can be added to the scene if necessary. The board itself light up in sync to music. One person will do the chess board, the lights, the music, and the pawn. The light from the board will light up transparent pieces. Another person will do the knight. Another will do the bishop and the queen. Finally, the last person will do the rook and the king.
+           	For software requirements we will all script in POV-ray. A GitHub repository will be setup to back up and combine our individual assignments. As a group we will come up with a theme and template for the chess set. This is so that all the pieces will look consistent. We will also come up with the game animation as a group.
