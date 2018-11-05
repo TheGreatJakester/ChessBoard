@@ -8,3 +8,4 @@
 *.js
 
 *.code-workspace
+.vscode
