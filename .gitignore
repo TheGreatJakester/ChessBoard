@@ -7,3 +7,5 @@
 *.py
 *.java
 *.js
+
+*.code-workspace
