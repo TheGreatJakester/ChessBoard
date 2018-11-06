@@ -22,4 +22,8 @@ for move in MOVES[:5]:
     board.execute_move(move[1],Color.BLACK,time,time_delta)
     time += time_delta
 
-print(board.get_spines_string())
+buffer = board.get_spines_string() 
+print(buffer)
+spline_file = open("pieces_splines.inc","w")
+spline_file.write(buffer)
+spline_file.close()

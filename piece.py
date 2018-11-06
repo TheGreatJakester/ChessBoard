@@ -7,7 +7,8 @@ class Color:
 
 class Piece:
     abbreviation = ""
-    
+    taken = False
+
     def __init__(self,position,color,identifier,board):
         if(isinstance(position,tuple)):
             self.position = position
@@ -17,6 +18,7 @@ class Piece:
         self.color = color
         self.board = board
         self.buffer = ""
+        
 
     
     def record_to_buffer(self,time,postion,height):
@@ -37,18 +39,22 @@ class Piece:
     def remove(self,time,duration):
         self.record_to_buffer(time,self.position,0)
         self.record_to_buffer(time+duration,self.position,self.board.space_width*10)
+        self.taken = True
 
     def buffer_to_string(self):
-        return "#declare {identifier}=\n\
-        spline{{\n\
-        \tcubic_spline\n\
-        {buffer}\n\
-        }}".format(identifier=self.identifier,buffer=self.buffer)
+        if self.buffer != "":
+            return "#declare {identifier}=\nspline{{\n\tcubic_spline\n{buffer}\n}}"\
+            .format(identifier=self.identifier,buffer=self.buffer)
+        else:
+            self.record_to_buffer(0,self.position,0)
+            return self.buffer_to_string()
 
     def can_reach(self,move):
         pass
 
     def can_execute(self,move):
+        if self.taken:
+            return False
         if(len(move)>2):
             if(move[0] == self.abbreviation and self.can_reach(move_position(move))):
                 return True
@@ -116,6 +122,7 @@ class King(Piece):
         else:
             return False
 
+#TODO make moves acknolage that pawns can move diagonaly if taking a peice.
 class Pawn(Piece):
     abbreviation = "p"
     is_first_move = True
@@ -124,12 +131,40 @@ class Pawn(Piece):
         if self.is_first_move:
             self.is_first_move = False
 
+    
+    def can_execute(self,move):
+        if self.taken:
+            return False
+        #checks it taking
+        elif("x" in move):
+            return self.can_take(move_position(move))
+        if(len(move)>2):
+            if(move[0] == self.abbreviation and self.can_reach(move_position(move))):
+                return True
+        elif self.can_reach(move_position(move)):
+            return True
+        else:
+            return False
+
     def can_reach(self,position):
         y_delta = position[1]-self.position[1]
         max_stride = 2 if self.is_first_move else 1
         forward_direaction = 1 if self.color == Color.WHITE else -1 
         if(
-            y_delta*forward_direaction <= max_stride
+            y_delta*forward_direaction <= max_stride and 
+            position[0] == self.position[0]
+        ):
+            return True
+        else:
+            return False
+
+    def can_take(self,position):
+        y_delta = position[1]-self.position[1]
+        x_delta = abs(position[0]-self.position[0])
+        forward_direaction = 1 if self.color == Color.WHITE else -1 
+        if(
+            y_delta*forward_direaction == 1 and 
+            x_delta == 1
         ):
             return True
         else:
