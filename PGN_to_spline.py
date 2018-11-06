@@ -23,7 +23,7 @@ for move in MOVES[:5]:
     time += time_delta
 
 buffer = board.get_spines_string() 
-print(buffer)
+#print(buffer)
 spline_file = open("pieces_splines.inc","w")
 spline_file.write(buffer)
 spline_file.close()
