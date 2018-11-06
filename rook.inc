@@ -1,46 +1,53 @@
 #include "colors.inc"
-
+// Comment this out
 camera{
-        location<0,2,-8>
-        look_at<0,0,0>
+        location< 0, 2, -5 >
+        look_at< 0, 2, 0 >
 }
  
 light_source{
-        <0,50,0>
+        < 0, 50, 0 >
         color White
 } 
 
 light_source{
-        <0,1,-5>
+        < 0, 1, -5 >
         color White
-}
+} 
 
-#declare rook = union {
-        //Base
+// Start here
+#declare rookX = 0;
+#declare rookY = 0;
+#declare rookZ = 0;
+#declare rookColor = Green;
+
+#declare rook = merge {
+
+        // Base
         cone {
-                <1, .51, 1>, .75 
-                <1, .6975, 1>, .75 
-                pigment { Green }
+                < rookX, rookY + .01, rookZ >, .75 
+                < rookX, rookY + .1975, rookZ >, .75 
+                pigment { rookColor }
         } 
         
         torus {
                 .55, .2 
-                pigment { Green }
-                translate <1,.85,1>  
+                pigment { rookColor }
+                translate < rookX, rookY + .35, rookZ >  
         
         }
         
         difference {
                 cone {
-                        <1, .8, 1>, .7 
-                        <1, 1.2, 1>, .6 
-                        pigment { Green }
+                        < rookX, rookY + .3, rookZ >, .7 
+                        < rookX, rookY + .7, rookZ >, .6 
+                        pigment { rookColor }
                 } 
                 
                 torus {
                         .75, .15 
-                        pigment { Green }
-                        translate <1,1.1,1> 
+                        pigment { rookColor }
+                        translate < rookX, rookY + .6, rookZ > 
         
                 }
         }  
@@ -48,79 +55,63 @@ light_source{
         // Shaft
         difference {
                 cone {
-                        <1, 1.2, 1>, .5
-                        <1, 2.2, 1>, .3 
-                        pigment { Green }
-                }
-                          
-                torus {
-                        1, .7 
-                        pigment { Green }
-                        translate <1,2,1>  
-        
+                        < rookX, rookY + .7, rookZ >, .5
+                        < rookX, rookY + 1.7, rookZ >, .3 
+                        pigment { rookColor }
                 } 
-                
+                               
                 torus {
-                        1, .7 
-                        pigment { Green }
-                        translate <1,1.9,1>  
+                        1.45, 1.16
+                        pigment { rookColor }
+                        translate < rookX, rookY + 1.3, rookZ >  
         
-                } 
+                }     
                 
-                torus {
-                        1, .7 
-                        pigment { Green }
-                        translate <1,1.8,1>  
-        
-                } 
-                torus {
-                        1, .7 
-                        pigment { Green }
-                        translate <1,1.7,1>  
-        
-                }      
-                
-        } 
-        //Head
+        }
+         
+        // Head
         cone {
-                <1, 2.1, 1>, .35
-                <1, 2.2, 1>, .35 
-                pigment { Green }
+                < rookX, rookY + 1.6, rookZ >, .35
+                < rookX, rookY + 1.7, rookZ >, .35 
+                pigment { rookColor }
         } 
         
         cone {
-                <1, 2.2, 1>, .5
-                <1, 2.25, 1>, .5 
-                pigment { Green }
+                < rookX, rookY + 1.7, rookZ >, .5
+                < rookX, rookY + 1.75, rookZ >, .5 
+                pigment { rookColor }
         } 
         
         cone {
-                <1, 2.2, 1>, .5
-                <1, 2.275, 1>, .475 
-                pigment { Green }
+                < rookX, rookY + 1.7, rookZ >, .5
+                < rookX, rookY + 1.775, rookZ >, .475 
+                pigment { rookColor }
         } 
         
         difference {
                 cone {
-                        <1, 2.3, 1>, .5
-                        <1, 2.75, 1>, .5 
-                        pigment { Green }
+                        < rookX, rookY + 1.8, rookZ >, .5
+                        < rookX, rookY + 2.25, rookZ >, .5 
+                        pigment { rookColor }
                 }  
                 
                 cone {
-                        <1, 2.4, 1>, .4 
-                        <1, 2.8, 1>, .4 
+                        < rookX, rookY + 1.9, rookZ >, .4 
+                        < rookX, rookY + 2.3, rookZ >, .4 
                 }
+
                 box {
-                        <.95, 2.6, 0>,  
-                        <1.05, 2.9, 2>   
+                        < rookX - .05, rookY + 2.1, rookZ - 1 >,  
+                        < rookX + .05, rookY + 2.4, rookZ + 1 >   
                 }
+
                 box { 
-                        <0, 2.6, .95>,  
-                        <2, 2.9, 1.05>    
+                        < rookX - 1, rookY + 2.1, rookZ - .05 >,  
+                        < rookX + 1, rookY + 2.4, rookZ + .05 >    
                 }
         }
 }
 
+// Comment this out
 object{rook}
 
