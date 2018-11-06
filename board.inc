@@ -51,8 +51,4 @@ light_source{
         #end
         #local i = i + 1;
         #end
-
-
 }
-
-object{board}

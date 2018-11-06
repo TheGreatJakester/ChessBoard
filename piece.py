@@ -1,5 +1,5 @@
 POSITION_TEMPLATE = "\t{time},{vector}\n"
-VECTOR_TEMPLATE = "<{0},{1},{height}>"
+VECTOR_TEMPLATE = "<{0},{height},{1}>"
 
 class Color:
     WHITE = 0
@@ -24,7 +24,10 @@ class Piece:
     def record_to_buffer(self,time,postion,height):
         self.buffer = self.buffer + POSITION_TEMPLATE.format(
             time = time,
-            vector = VECTOR_TEMPLATE.format(*postion,height=height)
+            vector = VECTOR_TEMPLATE.format(
+                (postion[0]+.5)*self.board.space_width,
+                (postion[1]+.5)*self.board.space_width,
+                height=height)
         )
 
     def make_move(self,move,time,duration):
@@ -43,7 +46,7 @@ class Piece:
 
     def buffer_to_string(self):
         if self.buffer != "":
-            return "#declare {identifier}=\nspline{{\n\tcubic_spline\n{buffer}\n}}"\
+            return "#declare {identifier}=\nspline{{\n\tlinear_spline\n{buffer}\n}}"\
             .format(identifier=self.identifier,buffer=self.buffer)
         else:
             self.record_to_buffer(0,self.position,0)

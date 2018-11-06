@@ -113,5 +113,5 @@ light_source{
 }
 
 // Comment this out
-object{rook}
+//object{rook}
 

@@ -154,4 +154,4 @@ declare king = merge {
 }        
 
 // Comment this out        
-object{king}
+// object{king}
