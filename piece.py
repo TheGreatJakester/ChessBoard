@@ -8,12 +8,12 @@ class Color:
 class Piece:
     abbreviation = ""
     
-    def __init__(self,position,color,board):
+    def __init__(self,position,color,identifier,board):
         if(isinstance(position,tuple)):
             self.position = position
         else:
             self.position = (0,0)
-
+        self.identifier = identifier
         self.color = color
         self.board = board
         self.buffer = ""
@@ -25,19 +25,25 @@ class Piece:
             vector = VECTOR_TEMPLATE.format(*postion,height=height)
         )
 
-    def move_to(self,position,time,duration):
+    def make_move(self,move,time,duration):
+        position = move_position(move)
         self.record_to_buffer(time             ,self.position,0)
         self.record_to_buffer(time+duration*.33,self.position,2*self.board.space_width)
         self.record_to_buffer(time+duration*.66,position     ,2*self.board.space_width)
         self.record_to_buffer(time+duration    ,position     ,0)
         self.position = position
 
-    def buffer_to_string(self,identifier):
+    #TODO maybe, make a better remove animation. right now, all it does is lift it straight up into the air.
+    def remove(self,time,duration):
+        self.record_to_buffer(time,self.position,0)
+        self.record_to_buffer(time+duration,self.position,self.board.space_width*10)
+
+    def buffer_to_string(self):
         return "#declare {identifier}=\n\
-        spline{\n\
+        spline{{\n\
         \tcubic_spline\n\
         {buffer}\n\
-        }".format(identifier=identifier,buffer=self.buffer)
+        }}".format(identifier=self.identifier,buffer=self.buffer)
 
     def can_reach(self,move):
         pass
@@ -94,7 +100,7 @@ class Knight(Piece):
 class Queen(Piece):
     abbreviation = "Q"
     def can_reach(self,position):
-        return Rook.can_reach(position) or Bishop.can_reach(position)
+        return Rook.can_reach(self,position) or Bishop.can_reach(self,position)
 
 #TODO allow castle
 class King(Piece):
@@ -113,8 +119,8 @@ class King(Piece):
 class Pawn(Piece):
     abbreviation = "p"
     is_first_move = True
-    def move_to(self,*args):
-        super(Piece,self).move_to(args)
+    def make_move(self,*args):
+        super().make_move(*args)
         if self.is_first_move:
             self.is_first_move = False
 
