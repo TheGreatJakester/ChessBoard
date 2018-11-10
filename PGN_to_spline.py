@@ -3,7 +3,7 @@ from board import Board
 from piece import Color
 #read the file in
 PGN_FILE = open("./kasparov_topalov_1999.pgn","r")
-PGN_CONTENTS = PGN_FILE.read().replace(r"\n"," ")
+PGN_CONTENTS = PGN_FILE.read()
 #parse out each move
 TURN_PATTERN = re.compile(r'\d{1,2}[.] .+? .+? ')
 MOVES = TURN_PATTERN.finditer(PGN_CONTENTS)
@@ -15,7 +15,7 @@ time = 0
 time_delta = 1
 
 #parse each move
-for move in MOVES[:5]:
+for (index,move) in enumerate(MOVES):
     #     execute_move(self,move,color,time,duration):
     board.execute_move(move[0],Color.WHITE,time,time_delta)
     time +=time_delta

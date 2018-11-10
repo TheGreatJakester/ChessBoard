@@ -29,10 +29,28 @@ class Board:
         self.pieces.append(  King((4,7),Color.BLACK,"BKing"   ,self))
 
     def execute_move(self,move,color,time,duration):
+        
+        if move == "O-O-O":
+            self.castle(color,time,duration)
+            return
         piece = self.get_can_execute(move,color)
         if(move[1] == "x"):
             self.get_piece_at(piece.position).remove(time+duration*.5,duration*.5)
-        piece.make_move(move,time,duration)
+        if(piece == None):
+            buffer = self.get_spines_string() 
+            #print(buffer)
+            spline_file = open("pieces_splines.inc","w")
+            spline_file.write(buffer)
+            spline_file.close()
+        
+        piece.make_move(move_position(move),time,duration)
+
+    def castle(self,color,time,duration):
+        y = 0 if color == Color.WHITE else 7
+        rook = self.get_piece_at((0,y))
+        king = self.get_piece_at((4,y)) 
+        king.make_move((2,y),time            ,duration*.5)
+        rook.make_move((3,y),time+duration*.5,duration*.5)
 
     def get_can_execute(self,move,color):
         for piece in self.pieces:

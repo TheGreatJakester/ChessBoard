@@ -30,8 +30,7 @@ class Piece:
                 height=height)
         )
 
-    def make_move(self,move,time,duration):
-        position = move_position(move)
+    def make_move(self,position,time,duration):
         self.record_to_buffer(time             ,self.position,0)
         self.record_to_buffer(time+duration*.33,self.position,2*self.board.space_width)
         self.record_to_buffer(time+duration*.66,position     ,2*self.board.space_width)
