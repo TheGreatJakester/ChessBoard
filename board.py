@@ -34,15 +34,10 @@ class Board:
             self.castle(color,time,duration)
             return
         piece = self.get_can_execute(move,color)
-        if(move[1] == "x"):
-            self.get_piece_at(piece.position).remove(time+duration*.5,duration*.5)
-        if(piece == None):
-            buffer = self.get_spines_string() 
-            #print(buffer)
-            spline_file = open("pieces_splines.inc","w")
-            spline_file.write(buffer)
-            spline_file.close()
-        
+        if("x" in move):
+            to_take = self.get_piece_at(move_position(move))
+            to_take.buffer += "\t//removed by {0}\n".format(move)
+            to_take.remove(time+duration*.2,duration*.8)        
         piece.make_move(move_position(move),time,duration)
 
     def castle(self,color,time,duration):
@@ -59,7 +54,7 @@ class Board:
         
     def get_piece_at(self,position):
         for piece in self.pieces:
-            if piece.position == position:
+            if piece.position == position and not piece.taken:
                 return piece
 
     def get_spines_string(self):

@@ -9,7 +9,7 @@
 #include "queen.inc"
 
 camera{
-        location<10, 10 , -10 >
+        location<12, 20 , -12 >
         look_at< 8, 0, 8 >
 }
  
