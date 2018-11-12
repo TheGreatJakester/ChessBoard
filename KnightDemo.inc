@@ -1,78 +1,56 @@
+#macro makeKnight(colorValue)
 
-#include "colors.inc" 
- 
-//background{White}
-camera {
-location <2, 4, -5>
-look_at <0, 2, 0> 
-}
-light_source { <20, 20, -20> color White }
-light_source { <20, -20, 20> color White }
-light_source { <-20, 20, 20> color White } 
-
-
-// knight coordinates and color
-#declare xValue = 0;
-#declare yValue = 0;  
-#declare zValue = 0;
-#declare colorValue = Green;
-
-
-
-
-
-#declare knight = union {
- 
+union { 
 //base of knight 
 cone {
-<xValue,yValue,zValue> 1.25
-<xValue,yValue+0.5,zValue> 1.25
-pigment {colorValue}
+<0,0,0> 1.25
+<0,0+0.5,0> 1.25
+texture {colorValue}
 } 
 
 torus{
 1,0.30
-pigment {colorValue}
-translate <xValue,yValue+0.5,zValue>
+texture {colorValue}
+translate <0,0+0.5,0>
 }
 
 cone {
-<xValue,yValue+0.5,zValue> 1
-<xValue,yValue+1,zValue> 1
-pigment {colorValue}
+<0,0+0.5,0> 1
+<0,0+1,0> 1
+texture {colorValue}
 }
 
 //spine of knight
 prism {
-zValue-1,
-zValue+1,
+0-1,
+0+1,
 3,
-<xValue-1,-yValue-3.70>, <xValue-1,-yValue-1>, <xValue+1,-yValue-1> //point 1, 2, 3
+<0-1,-0-3.70>, <0-1,-0-1>, <0+1,-0-1> //point 1, 2, 3
 rotate x*90
-pigment {colorValue} 
+texture {colorValue} 
 }
 
 //head of knight
 difference{
 difference{
 prism {
-zValue-1,
-zValue+1,
+0-1,
+0+1,
 3,
-<xValue-1,-yValue-3.70>, <xValue-0.95,-yValue-2>, <xValue+0.25, -yValue-3.70>
+<0-1,-0-3.70>, <0-0.95,-0-2>, <0+0.25, -0-3.70>
 rotate x*90
-pigment {colorValue}
+texture {colorValue}
 }
 //(eye1)
 sphere{ 
-<xValue-0.20,yValue+3.40,zValue-1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0-1.1>, 0.20
+texture {colorValue}
 }
 }
 //(eye2)
 sphere{
-<xValue-0.20,yValue+3.40,zValue+1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0+1.1>, 0.20
+texture {colorValue}
 }
 }
 
@@ -80,19 +58,19 @@ pigment {colorValue}
 difference{
 difference{
 box{
-<xValue+0.25,yValue+3.70,zValue+1> 
-<xValue-0.5,yValue+2.95,zValue-1>  
-pigment {colorValue}
+<0+0.25,0+3.70,0+1> 
+<0-0.5,0+2.95,0-1>  
+texture {colorValue}
 }
 //(eye1)
 sphere{ 
-<xValue-0.20,yValue+3.40,zValue-1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0-1.1>, 0.20
+texture {colorValue}
 }
 //(eye2)
 sphere{
-<xValue-0.20,yValue+3.40,zValue+1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0+1.1>, 0.20
+texture {colorValue}
 }
 }
 }
@@ -100,52 +78,46 @@ difference{
 difference{
 difference{ 
 cone{
-<xValue+0.25,yValue+3.325,zValue-1>, 0.375
-<xValue+0.25,yValue+3.325,zValue+1>, 0.375
-pigment {colorValue}
+<0+0.25,0+3.325,0-1>, 0.375
+<0+0.25,0+3.325,0+1>, 0.375
+texture {colorValue}
 }
 //(eye1)
 sphere{ 
-<xValue-0.20,yValue+3.40,zValue-1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0-1.1>, 0.20
+texture {colorValue}
 }
 //(eye2)
 sphere{
-<xValue-0.20,yValue+3.40,zValue+1.1>, 0.20
-pigment {colorValue}
+<0-0.20,0+3.40,0+1.1>, 0.20
+texture {colorValue}
 }
 }
 }
 box{
-<xValue+0.25,yValue+4,zValue+1> 
-<xValue-1,yValue+1,zValue-1>
-pigment {colorValue}
+<0+0.25,0+4,0+1> 
+<0-1,0+1,0-1>
+texture {colorValue}
 }
 }
 
 //ears of knight
 prism {
-zValue-1
-zValue-0.4,
+0-1
+0-0.4,
 3,
-<xValue-0.65,-yValue-4.25>, <xValue-1,-yValue-3.70>, <xValue-0.50,-yValue-3.70> //point 1, 2, 3
+<0-0.65,-0-4.25>, <0-1,-0-3.70>, <0-0.50,-0-3.70> //point 1, 2, 3
 rotate x*90
-pigment {colorValue} 
+texture {colorValue} 
 }
 prism {
-zValue+1,
-zValue+0.4,
+0+1,
+0+0.4,
 3,
-<xValue-0.65,-yValue-4.25>, <xValue-1,-yValue-3.70>, <xValue-0.50,-yValue-3.70> //point 1, 2, 3
+<0-0.65,-0-4.25>, <0-1,-0-3.70>, <0-0.50,-0-3.70> //point 1, 2, 3
 rotate x*90
-pigment {colorValue} 
+texture {colorValue} 
 }
 
-} 
-
-  
-  
-   
-object { knight } 
-
-
+}
+#end

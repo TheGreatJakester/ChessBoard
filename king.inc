@@ -1,68 +1,47 @@
-#include "colors.inc"
-// Comment this out
-camera{
-        location< 0, 2, -5 >
-        look_at< 0, 2, 0 >
-}
- 
-light_source{
-        < 0, 50, 0 >
-        color White
-} 
-
-light_source{
-        < 0, 1, -5 >
-        color White
-}
-// Start here
-#declare kingX = 0;
-#declare kingY = 0;
-#declare kingZ = 0;
-#declare kingColor = Green;
-
-declare king = merge { 
+#macro makeKing(kingColor)
+merge { 
 
         // Base
         cone {
-                < kingX, kingY + .01, kingZ >, .75 
-                < kingX, kingY +  .1975, kingZ >, .75 
-                pigment { kingColor }
+                < 0, 0 + .01, 0 >, .75 
+                < 0, 0 +  .1975, 0 >, .75 
+                texture { kingColor }
         } 
         
         torus {
                 .55, .2 
-                pigment { kingColor }
-                translate < kingX, kingY + .35, kingZ >  
+                texture { kingColor }
+                translate < 0, 0 + .35, 0 >  
         
         }
 
         difference {         
                 cone {
-                        < kingX, kingY + .3, kingZ >, .7 
-                        < kingX, kingY + .8, kingZ >, .6 
-                        pigment { kingColor }
+                        < 0, 0 + .3, 0 >, .7 
+                        < 0, 0 + .8, 0 >, .6 
+                        texture { kingColor }
                 } 
                  
                 torus {
                         
                         .8, .2 
-                        pigment { kingColor }
-                        translate < kingX, kingY + .7, kingZ >  
+                        texture { kingColor }
+                        translate < 0, 0 + .7, 0 >  
                 }
         } 
         
         // Shaft
         difference {         
                 cone {
-                        < kingX, kingY + .8, kingZ >, .6 
-                        < kingX, kingY + 1.9, kingZ >, .35 
-                        pigment { kingColor }
+                        < 0, 0 + .8, 0 >, .6 
+                        < 0, 0 + 1.9, 0 >, .35 
+                        texture { kingColor }
                 } 
                  
                 torus {
                         1.45, 1.16
-                        pigment { kingColor }
-                        translate < kingX, kingY + 1.4, kingZ >  
+                        texture { kingColor }
+                        translate < 0, 0 + 1.4, 0 >  
         
                 } 
 
@@ -71,87 +50,85 @@ declare king = merge {
         // Head
         torus {
                 .35, .1 
-                pigment { kingColor }
-                translate < kingX, kingY + 1.9, kingZ >  
+                texture { kingColor }
+                translate < 0, 0 + 1.9, 0 >  
         
         }
         
         cone {
-                < kingX, kingY + 2, kingZ >, .4 
-                < kingX, kingY + 2.05, kingZ >, .4 
-                pigment { kingColor }
+                < 0, 0 + 2, 0 >, .4 
+                < 0, 0 + 2.05, 0 >, .4 
+                texture { kingColor }
         } 
         
         cone {
-                < kingX, kingY + 2.05, kingZ >, .35 
-                < kingX, kingY + 2.1, kingZ >, .35 
-                pigment { kingColor }
+                < 0, 0 + 2.05, 0 >, .35 
+                < 0, 0 + 2.1, 0 >, .35 
+                texture { kingColor }
         }
 
         cone {
-                < kingX, kingY + 2.1, kingZ >, .375 
-                < kingX, kingY + 2.15, kingZ >, .375 
-                pigment { kingColor }
+                < 0, 0 + 2.1, 0 >, .375 
+                < 0, 0 + 2.15, 0 >, .375 
+                texture { kingColor }
         }  
          
         cone {
-                < kingX, kingY + 2.15, kingZ >, .35 
-                < kingX, kingY + 2.6, kingZ >, .5 
-                pigment { kingColor }
+                < 0, 0 + 2.15, 0 >, .35 
+                < 0, 0 + 2.6, 0 >, .5 
+                texture { kingColor }
         }
         
         cone {
-                < kingX, kingY + 2.6, kingZ >, .5 
-                < kingX, kingY + 2.75, kingZ >, .375 
-                pigment { kingColor }
+                < 0, 0 + 2.6, 0 >, .5 
+                < 0, 0 + 2.75, 0 >, .375 
+                texture { kingColor }
         }
         
         cone {
-                < kingX, kingY + 2.75, kingZ >, .25 
-                < kingX, kingY + 2.8, kingZ >, .25 
-                pigment { kingColor }
+                < 0, 0 + 2.75, 0 >, .25 
+                < 0, 0 + 2.8, 0 >, .25 
+                texture { kingColor }
         } 
         
         // Crown
         difference { 
                 union{
                         cone {
-                                < kingX, kingY + 2.8, kingZ >, .2 
-                                < kingX, kingY + 2.9, kingZ >, .25 
-                                pigment { kingColor }
+                                < 0, 0 + 2.8, 0 >, .2 
+                                < 0, 0 + 2.9, 0 >, .25 
+                                texture { kingColor }
                         } 
                         
                         cone {
-                                < kingX, kingY + 2.9, kingZ >, .25 
-                                < kingX, kingY + 3, kingZ >, .2 
-                                pigment { kingColor }
+                                < 0, 0 + 2.9, 0 >, .25 
+                                < 0, 0 + 3, 0 >, .2 
+                                texture { kingColor }
                         }
 
                         box { 
-                                < kingX - .25, kingY + 3, kingZ - .2 >,  
-                                < kingX + .25, kingY + 3.2, kingZ + .2 >  
-                                pigment { kingColor }      
+                                < 0 - .25, 0 + 3, 0 - .2 >,  
+                                < 0 + .25, 0 + 3.2, 0 + .2 >  
+                                texture { kingColor }      
                         }
 
                         sphere {
-                                < kingX, kingY + 3.3, kingZ >, .2
-                                pigment { kingColor } 
+                                < 0, 0 + 3.3, 0 >, .2
+                                texture { kingColor } 
                         }
                 } 
                 
                 box {
-                        < kingX - .5, kingY + 2.8, kingZ - .3 >,  
-                        < kingX + .5, kingY + 4, kingZ - .1 >   
-                         pigment { kingColor }
+                        < 0 - .5, 0 + 2.8, 0 - .3 >,  
+                        < 0 + .5, 0 + 4, 0 - .1 >   
+                         texture { kingColor }
                 }
 
                 box { 
-                        < kingX - .5, kingY + 2.8, kingZ + .1 >,  
-                        < kingX + .5, kingY + 4, kingZ + .3 >     
-                         pigment { kingColor }
+                        < 0 - .5, 0 + 2.8, 0 + .1 >,  
+                        < 0 + .5, 0 + 4, 0 + .3 >     
+                         texture { kingColor }
                 }
         }
 }        
-
-// Comment this out        
-// object{king}
+#end
