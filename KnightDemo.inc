@@ -3,7 +3,7 @@
  
 //background{White}
 camera {
-location <2, 4, -5>
+location <0, 4, -5>
 look_at <0, 2, 0> 
 }
 light_source { <20, 20, -20> color White }
@@ -146,6 +146,6 @@ pigment {colorValue}
   
   
    
-object { knight } 
+object { knight rotate y*270 } 
 
 
