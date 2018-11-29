@@ -8,6 +8,5 @@
 *.js
 *.pyc
 */__pycache__
-pieces_splines.inc
 
 .vscode
