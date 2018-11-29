@@ -4,10 +4,10 @@
 *.jpeg
 *.bak
 
-*.pyc
-*/__pycache__
 *.java
 *.js
-*.json
+*.pyc
+*/__pycache__
 pieces_splines.inc
 
+.vscode
