@@ -16,19 +16,40 @@ def mush(array,bins):
 
     return out
 
+#def make_mono(data):
+#    out = np.zeros((data.shape[0]))
+#    for sample_index in range(data.shape[0]):
+#        total = 0
+#        for channel in range(data.shape[-1]):
+#            total += data[sample_index,channel]
+#        out[sample_index] = (total/data.shape[-1])
+#    return out
+
 (rate,data) = scipy.io.wavfile.read("HAHA.wav") #pylint: disable=E1101
-#mushdata
+#just pulling the data from the left channel.
+
+fps = 24
 mono = data[:,0]
+frame_length = int(rate/fps)
+timecode = []
+bins=64
 
-frame_length = int(rate/24)
+for frame_number in range(round(data.shape[0]/frame_length)):
+    frame = mono[frame_length*frame_number:frame_length*(frame_number+1)]
+    frame_fft = abs(np.fft.fft(frame).real)
+    timecode.append(mush(frame_fft,bins))
 
-frame_number = 400
-frame = mono[frame_length*frame_number:frame_length*(frame_number+1)]
+#write time code to file
 
-frame_fft = abs(np.fft.fft(frame).real)
-frame_freq = np.fft.fftfreq(frame.shape[-1])
+spline_template = "\n\n#declare {identifier} = spline {{\n\tcubic_spline\n"
 
-#plt.plot(frame_freq, frame_fft)
-#plt.show()
+spline_file = open("music_splines.inc","w")
+for freq in range(bins):
+    spline_file.write(spline_template.format(identifier="freq"+str(freq)))
+    for (frame_index,frame) in enumerate(timecode):
+        spline_file.write("\t{0},{1}\n".format(frame_index/fps,frame[freq]))
+    spline_file.write("}")
+    
 
-print(mush(frame_fft,64))
+spline_file.close()
+
