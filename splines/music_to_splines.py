@@ -25,7 +25,7 @@ def mush(array,bins):
 #        out[sample_index] = (total/data.shape[-1])
 #    return out
 
-(rate,data) = scipy.io.wavfile.read("HAHA.wav") #pylint: disable=E1101
+(rate,data) = scipy.io.wavfile.read("splines/HAHA.wav") #pylint: disable=E1101
 #just pulling the data from the left channel.
 
 fps = 24
@@ -43,7 +43,7 @@ for frame_number in range(round(data.shape[0]/frame_length)):
 
 spline_template = "\n\n#declare {identifier} = spline {{\n\tcubic_spline\n"
 
-spline_file = open("music_splines.inc","w")
+spline_file = open("splines/music_splines.inc","w")
 for freq in range(bins):
     spline_file.write(spline_template.format(identifier="freq"+str(freq)))
     for (frame_index,frame) in enumerate(timecode):
