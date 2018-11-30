@@ -1,12 +1,4 @@
-#include "colors.inc"
-#include "stones.inc"
-#include "textures.inc"
-#include "shapes.inc"
-#include "glass.inc"
-#include "metals.inc"
-#include "woods.inc"
-
-#declare Bishop = merge {
+#declare bishop = merge {
         sphere {<0,0,0>,0.25 scale <1,0.6,1> translate <0,5.82,0> }
         difference {
                 sphere {<0,0,0>,1 scale <0.85,1,0.85> translate <0,4.75,0> }
@@ -44,6 +36,4 @@
 }
 
 
-
-
-object { Bishop }
+#declare bishop = object{bishop scale 0.56}

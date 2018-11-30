@@ -1,15 +1,4 @@
-#include "colors.inc"
 
-
-camera{
-        location<0,30,-50>
-        look_at<0,0,0>
-}
-
-light_source{
-        <0,50,0>
-        color White
-}
 //This is a really basic board, the board will be more complicated in the future, but for now this works. -Jake
 //I will make sure that the dimentions on future boards will the same as this one -Jake
 #declare board = union{
@@ -52,7 +41,4 @@ light_source{
         #local i = i + 1;
         #end
 
-
 }
-
-object{board}

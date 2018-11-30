@@ -1,12 +1,4 @@
-#include "colors.inc"
-#include "stones.inc"
-#include "textures.inc"
-#include "shapes.inc"
-#include "glass.inc"
-#include "metals.inc"
-#include "woods.inc"
-
-#declare Queen = merge {
+#declare queen = merge {
         merge {
                  difference {
                         difference {
@@ -75,3 +67,5 @@
         cone { <0,0,0>,1.5, <0,0.25,0>,1.5 scale 1 rotate 0 translate <0,0,0> }
         scale <1,1.15,1>
 }
+
+#declare queen = object{queen scale 0.6}
