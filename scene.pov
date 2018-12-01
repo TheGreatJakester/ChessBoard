@@ -1,14 +1,11 @@
 //basic includes
 #include "colors.inc"
 //texture includes
-#include "shapes.inc"
 #include "textures.inc"
-#include "stones.inc"
-#include "glass.inc"
 #include "metals.inc"
 
-#declare white_piece_texture = Spun_Brass
-#declare black_piece_texture = Brass_Valley
+#declare white_piece_texture = T_Silver_3A
+#declare black_piece_texture = T_Copper_4A     
 
 //piece includes
 #include "pieces/pawn.inc"
@@ -26,16 +23,18 @@
 #include "board.inc"
 
 camera{
-        location< 10, 20, -5 >
+        location< 10, 15, -10 >
         look_at< 8, 2, 8 >
 }
- 
+
 light_source{
         < 0, 50, 0 >
         color White
 } 
+ 
 
-object {board}
+
+object {board translate <0, -.5, 0>}
 
 //white peices
 object{ pawn translate WPawn0(clock) texture{white_piece_texture} }

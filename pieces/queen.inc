@@ -68,4 +68,4 @@
         scale <1,1.15,1>
 }
 
-#declare queen = object{queen scale 0.6}
+#declare queen = object{queen scale 0.5}

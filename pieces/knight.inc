@@ -1,15 +1,11 @@
 
-// knight coordinates and color
+// knight coordinates
 #declare xValue = 0;
 #declare yValue = 0;  
 #declare zValue = 0;
-#declare colorValue = Green;
 
 
-
-
-
-#declare knight = union {
+#declare knight = merge {
  
 //base of knight 
 cone {
@@ -130,8 +126,7 @@ rotate x*90
 }
 
 } 
+ 
 
-  
-
-#declare knight = object{knight scale 0.55}  
+#declare knight = object{knight scale <.5, .6, .5>}  
 

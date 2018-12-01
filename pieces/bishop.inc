@@ -36,4 +36,4 @@
 }
 
 
-#declare bishop = object{bishop scale 0.56}
+#declare bishop = object{bishop scale 0.5}

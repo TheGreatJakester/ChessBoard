@@ -2,12 +2,12 @@
 //This is a really basic board, the board will be more complicated in the future, but for now this works. -Jake
 //I will make sure that the dimentions on future boards will the same as this one -Jake
 #declare board = union{
-        //boarder of the board
+        //border of the board
         difference{
                 box{
-                        <-.5,.5,-.5>
-                        <16.5,0,16.5>
-                        texture{pigment{color Brown}}
+                        <-1,.5,-1>
+                        <17,0,17>
+                        texture{pigment{color Silver filter 0.7}}
                 }
                 box{
                         <0,-0.1,0>
@@ -27,10 +27,11 @@
                 <2+j*2,.5,2+i*2>
                 texture{pigment{ color
                 #if(mod(j+i,2) = 1)
-                White
+                Silver
                 #else
-                Black
+                Brown
                 #end
+                filter 0.7
                 }}
                         
                 
