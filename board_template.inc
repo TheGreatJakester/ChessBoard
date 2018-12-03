@@ -3,15 +3,6 @@
 //I will make sure that the dimentions on future boards will the same as this one -Jake
 #include "splines/music_splines.inc"
 
-#declare orb = union{
-        sphere{
-                <0,0,0> .25
-        }
-        sphere{
-                <0,0,0> .2
-        }
-}
-
 #declare board = union{
         //boarder of the board
         difference{

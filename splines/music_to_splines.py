@@ -28,6 +28,8 @@ def mush(array,bins):
 (rate,data) = scipy.io.wavfile.read("splines/HAHA.wav") #pylint: disable=E1101
 #just pulling the data from the left channel.
 
+chop = .90
+
 fps = 24
 mono = data[:,0]
 frame_length = int(rate/fps)
@@ -37,7 +39,7 @@ bins=64
 for frame_number in range(round(data.shape[0]/frame_length)):
     frame = mono[frame_length*frame_number:frame_length*(frame_number+1)]
     frame_fft = abs(np.fft.fft(frame).real)
-    timecode.append(mush(frame_fft,bins))
+    timecode.append(mush(frame_fft[round(len(frame_fft)*chop):],bins))
 
 #write time code to file
 
@@ -53,3 +55,21 @@ for freq in range(bins):
 
 spline_file.close()
 
+plt.plot(np.fft.fftfreq(len(timecode[0])), timecode[0])
+plt.show()
+
+
+plt.plot(np.fft.fftfreq(len(timecode[0])), timecode[100])
+plt.show()
+
+
+plt.plot(np.fft.fftfreq(len(timecode[0])), timecode[200])
+plt.show()
+
+
+plt.plot(np.fft.fftfreq(len(timecode[0])), timecode[300])
+plt.show()
+
+
+plt.plot(np.fft.fftfreq(len(timecode[0])), timecode[400])
+plt.show()

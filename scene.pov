@@ -7,8 +7,8 @@
 #include "glass.inc"
 #include "metals.inc"
 
-#declare white_piece_texture = Spun_Brass
-#declare black_piece_texture = Brass_Valley
+#declare white_piece_texture = pigment{color White}//Spun_Brass
+#declare black_piece_texture = pigment{color Black}//Brass_Valley
 
 //piece includes
 #include "pieces/pawn.inc"
@@ -35,7 +35,7 @@ light_source{
         color White
 } 
 
-object {board}
+object {board translate <0,-.5,0>}
 
 //white peices
 object{ pawn translate WPawn0(clock) texture{white_piece_texture} }

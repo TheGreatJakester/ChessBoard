@@ -3,15 +3,6 @@
 //I will make sure that the dimentions on future boards will the same as this one -Jake
 #include "splines/music_splines.inc"
 
-#declare orb = union{
-        sphere{
-                <0,0,0> .25
-        }
-        sphere{
-                <0,0,0> .2
-        }
-}
-
 #declare board = union{
         //boarder of the board
         difference{
@@ -35,10 +26,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq0(clock))
-		looks_like {orb}
+		color rgb freq0(clock)/100000
 }
 	box{
 		<0,0,2>
@@ -47,10 +35,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq1(clock))
-		looks_like {orb}
+		color rgb freq1(clock)/100000
 }
 	box{
 		<0,0,4>
@@ -59,10 +44,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq2(clock))
-		looks_like {orb}
+		color rgb freq2(clock)/100000
 }
 	box{
 		<0,0,6>
@@ -71,10 +53,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq3(clock))
-		looks_like {orb}
+		color rgb freq3(clock)/100000
 }
 	box{
 		<0,0,8>
@@ -83,10 +62,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq4(clock))
-		looks_like {orb}
+		color rgb freq4(clock)/100000
 }
 	box{
 		<0,0,10>
@@ -95,10 +71,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq5(clock))
-		looks_like {orb}
+		color rgb freq5(clock)/100000
 }
 	box{
 		<0,0,12>
@@ -107,10 +80,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq6(clock))
-		looks_like {orb}
+		color rgb freq6(clock)/100000
 }
 	box{
 		<0,0,14>
@@ -119,10 +89,7 @@
 }
 	light_source{
 		< 1.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq7(clock))
-		looks_like {orb}
+		color rgb freq7(clock)/100000
 }
 	box{
 		<2,0,0>
@@ -131,10 +98,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq8(clock))
-		looks_like {orb}
+		color rgb freq8(clock)/100000
 }
 	box{
 		<2,0,2>
@@ -143,10 +107,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq9(clock))
-		looks_like {orb}
+		color rgb freq9(clock)/100000
 }
 	box{
 		<2,0,4>
@@ -155,10 +116,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq10(clock))
-		looks_like {orb}
+		color rgb freq10(clock)/100000
 }
 	box{
 		<2,0,6>
@@ -167,10 +125,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq11(clock))
-		looks_like {orb}
+		color rgb freq11(clock)/100000
 }
 	box{
 		<2,0,8>
@@ -179,10 +134,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq12(clock))
-		looks_like {orb}
+		color rgb freq12(clock)/100000
 }
 	box{
 		<2,0,10>
@@ -191,10 +143,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq13(clock))
-		looks_like {orb}
+		color rgb freq13(clock)/100000
 }
 	box{
 		<2,0,12>
@@ -203,10 +152,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq14(clock))
-		looks_like {orb}
+		color rgb freq14(clock)/100000
 }
 	box{
 		<2,0,14>
@@ -215,10 +161,7 @@
 }
 	light_source{
 		< 3.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq15(clock))
-		looks_like {orb}
+		color rgb freq15(clock)/100000
 }
 	box{
 		<4,0,0>
@@ -227,10 +170,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq16(clock))
-		looks_like {orb}
+		color rgb freq16(clock)/100000
 }
 	box{
 		<4,0,2>
@@ -239,10 +179,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq17(clock))
-		looks_like {orb}
+		color rgb freq17(clock)/100000
 }
 	box{
 		<4,0,4>
@@ -251,10 +188,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq18(clock))
-		looks_like {orb}
+		color rgb freq18(clock)/100000
 }
 	box{
 		<4,0,6>
@@ -263,10 +197,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq19(clock))
-		looks_like {orb}
+		color rgb freq19(clock)/100000
 }
 	box{
 		<4,0,8>
@@ -275,10 +206,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq20(clock))
-		looks_like {orb}
+		color rgb freq20(clock)/100000
 }
 	box{
 		<4,0,10>
@@ -287,10 +215,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq21(clock))
-		looks_like {orb}
+		color rgb freq21(clock)/100000
 }
 	box{
 		<4,0,12>
@@ -299,10 +224,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq22(clock))
-		looks_like {orb}
+		color rgb freq22(clock)/100000
 }
 	box{
 		<4,0,14>
@@ -311,10 +233,7 @@
 }
 	light_source{
 		< 5.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq23(clock))
-		looks_like {orb}
+		color rgb freq23(clock)/100000
 }
 	box{
 		<6,0,0>
@@ -323,10 +242,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq24(clock))
-		looks_like {orb}
+		color rgb freq24(clock)/100000
 }
 	box{
 		<6,0,2>
@@ -335,10 +251,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq25(clock))
-		looks_like {orb}
+		color rgb freq25(clock)/100000
 }
 	box{
 		<6,0,4>
@@ -347,10 +260,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq26(clock))
-		looks_like {orb}
+		color rgb freq26(clock)/100000
 }
 	box{
 		<6,0,6>
@@ -359,10 +269,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq27(clock))
-		looks_like {orb}
+		color rgb freq27(clock)/100000
 }
 	box{
 		<6,0,8>
@@ -371,10 +278,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq28(clock))
-		looks_like {orb}
+		color rgb freq28(clock)/100000
 }
 	box{
 		<6,0,10>
@@ -383,10 +287,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq29(clock))
-		looks_like {orb}
+		color rgb freq29(clock)/100000
 }
 	box{
 		<6,0,12>
@@ -395,10 +296,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq30(clock))
-		looks_like {orb}
+		color rgb freq30(clock)/100000
 }
 	box{
 		<6,0,14>
@@ -407,10 +305,7 @@
 }
 	light_source{
 		< 7.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq31(clock))
-		looks_like {orb}
+		color rgb freq31(clock)/100000
 }
 	box{
 		<8,0,0>
@@ -419,10 +314,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq32(clock))
-		looks_like {orb}
+		color rgb freq32(clock)/100000
 }
 	box{
 		<8,0,2>
@@ -431,10 +323,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq33(clock))
-		looks_like {orb}
+		color rgb freq33(clock)/100000
 }
 	box{
 		<8,0,4>
@@ -443,10 +332,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq34(clock))
-		looks_like {orb}
+		color rgb freq34(clock)/100000
 }
 	box{
 		<8,0,6>
@@ -455,10 +341,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq35(clock))
-		looks_like {orb}
+		color rgb freq35(clock)/100000
 }
 	box{
 		<8,0,8>
@@ -467,10 +350,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq36(clock))
-		looks_like {orb}
+		color rgb freq36(clock)/100000
 }
 	box{
 		<8,0,10>
@@ -479,10 +359,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq37(clock))
-		looks_like {orb}
+		color rgb freq37(clock)/100000
 }
 	box{
 		<8,0,12>
@@ -491,10 +368,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq38(clock))
-		looks_like {orb}
+		color rgb freq38(clock)/100000
 }
 	box{
 		<8,0,14>
@@ -503,10 +377,7 @@
 }
 	light_source{
 		< 9.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq39(clock))
-		looks_like {orb}
+		color rgb freq39(clock)/100000
 }
 	box{
 		<10,0,0>
@@ -515,10 +386,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq40(clock))
-		looks_like {orb}
+		color rgb freq40(clock)/100000
 }
 	box{
 		<10,0,2>
@@ -527,10 +395,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq41(clock))
-		looks_like {orb}
+		color rgb freq41(clock)/100000
 }
 	box{
 		<10,0,4>
@@ -539,10 +404,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq42(clock))
-		looks_like {orb}
+		color rgb freq42(clock)/100000
 }
 	box{
 		<10,0,6>
@@ -551,10 +413,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq43(clock))
-		looks_like {orb}
+		color rgb freq43(clock)/100000
 }
 	box{
 		<10,0,8>
@@ -563,10 +422,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq44(clock))
-		looks_like {orb}
+		color rgb freq44(clock)/100000
 }
 	box{
 		<10,0,10>
@@ -575,10 +431,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq45(clock))
-		looks_like {orb}
+		color rgb freq45(clock)/100000
 }
 	box{
 		<10,0,12>
@@ -587,10 +440,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq46(clock))
-		looks_like {orb}
+		color rgb freq46(clock)/100000
 }
 	box{
 		<10,0,14>
@@ -599,10 +449,7 @@
 }
 	light_source{
 		< 11.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq47(clock))
-		looks_like {orb}
+		color rgb freq47(clock)/100000
 }
 	box{
 		<12,0,0>
@@ -611,10 +458,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq48(clock))
-		looks_like {orb}
+		color rgb freq48(clock)/100000
 }
 	box{
 		<12,0,2>
@@ -623,10 +467,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq49(clock))
-		looks_like {orb}
+		color rgb freq49(clock)/100000
 }
 	box{
 		<12,0,4>
@@ -635,10 +476,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq50(clock))
-		looks_like {orb}
+		color rgb freq50(clock)/100000
 }
 	box{
 		<12,0,6>
@@ -647,10 +485,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq51(clock))
-		looks_like {orb}
+		color rgb freq51(clock)/100000
 }
 	box{
 		<12,0,8>
@@ -659,10 +494,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq52(clock))
-		looks_like {orb}
+		color rgb freq52(clock)/100000
 }
 	box{
 		<12,0,10>
@@ -671,10 +503,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq53(clock))
-		looks_like {orb}
+		color rgb freq53(clock)/100000
 }
 	box{
 		<12,0,12>
@@ -683,10 +512,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq54(clock))
-		looks_like {orb}
+		color rgb freq54(clock)/100000
 }
 	box{
 		<12,0,14>
@@ -695,10 +521,7 @@
 }
 	light_source{
 		< 13.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq55(clock))
-		looks_like {orb}
+		color rgb freq55(clock)/100000
 }
 	box{
 		<14,0,0>
@@ -707,10 +530,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 1.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq56(clock))
-		looks_like {orb}
+		color rgb freq56(clock)/100000
 }
 	box{
 		<14,0,2>
@@ -719,10 +539,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 3.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq57(clock))
-		looks_like {orb}
+		color rgb freq57(clock)/100000
 }
 	box{
 		<14,0,4>
@@ -731,10 +548,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 5.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq58(clock))
-		looks_like {orb}
+		color rgb freq58(clock)/100000
 }
 	box{
 		<14,0,6>
@@ -743,10 +557,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 7.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq59(clock))
-		looks_like {orb}
+		color rgb freq59(clock)/100000
 }
 	box{
 		<14,0,8>
@@ -755,10 +566,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 9.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq60(clock))
-		looks_like {orb}
+		color rgb freq60(clock)/100000
 }
 	box{
 		<14,0,10>
@@ -767,10 +575,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 11.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq61(clock))
-		looks_like {orb}
+		color rgb freq61(clock)/100000
 }
 	box{
 		<14,0,12>
@@ -779,10 +584,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 13.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq62(clock))
-		looks_like {orb}
+		color rgb freq62(clock)/100000
 }
 	box{
 		<14,0,14>
@@ -791,10 +593,7 @@
 }
 	light_source{
 		< 15.0, 0.25, 15.0 >
-		color White
-		fade_distance 1
-		fade_power 1000000/vlength(freq63(clock))
-		looks_like {orb}
+		color rgb freq63(clock)/100000
 }
 
 

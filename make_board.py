@@ -13,9 +13,7 @@ texture{{pigment{{color {color} filter .8}}}}\
 light_template = "\
 \tlight_source{{\n\
 \t\t< {x}, {heigth}, {z} >\n\
-\t\tcolor White\n\
-\t\tfade_distance 1\n\
-\t\tfade_power 1000000/vlength(freq{freq}(clock))\n\
+\t\tcolor rgb freq{freq}(clock)/100000\n\
 }}\n"
 
 try:
